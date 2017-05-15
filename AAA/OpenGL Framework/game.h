@@ -1,3 +1,6 @@
+#pragma once
+#include "GameObject.h"
+
 class CGame
 {
 public:
@@ -8,11 +11,11 @@ public:
 	void DrawScene();
 	void UpdateFrame(DWORD milliseconds);
 	void DestroyGame();
-	void init();
-	void shutdown();
-	static const uint32_t mScreenWidth = 1024;
-	static const uint32_t mScreenHeight = 768;
-	static const uint32_t mBitsPerPixel = 32;
+	void Init();
+	void Shutdown();
+	static const uint32_t mScreenWidth;
+	static const uint32_t mScreenHeight;
+	static const uint32_t mBitsPerPixel;
 private:
 	static const char8_t mGameTitle[20];
 	static CGame *sInstance;

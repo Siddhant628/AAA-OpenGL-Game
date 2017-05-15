@@ -1,4 +1,5 @@
 #define GAME_CPP
+
 #include <windows.h>											// Header File For Windows
 #include <stdio.h>												// Header File For Standard Input / Output
 #include <stdarg.h>												// Header File For Variable Argument Routines
@@ -7,80 +8,76 @@
 #include <gl\glu.h>												// Header File For The GLu32 Library
 #include "glut.h"
 #include "baseTypes.h"
-#include "openglframework.h"	
-#include "gamedefs.h"
-#include "collInfo.h"
-#include "object.h"
-#include "ball.h"
-#include "field.h"
+#include "openglframework.h"
 #include "random.h"
-#include "gameObjects.h"
 #include "openGLStuff.h"
 #include "game.h"
-#include "StateManager.h"
-#include "BallManager.h"
-#include "FieldManager.h"
 #include "InputManager.h"
-#include "SpriteDemoManager.h"
+#include "GameObjectManager.h"
+#include "GameManager.h"
+#include "CollisionManager.h"
+
+using namespace Engine;
 
 // Declarations
-const char8_t CGame::mGameTitle[]="Framework1";
-CGame* CGame::sInstance=NULL;
+const uint32_t CGame::mScreenWidth = 1024;
+const uint32_t CGame::mScreenHeight = 768;
+const uint32_t CGame::mBitsPerPixel = 32;
+
+const char8_t CGame::mGameTitle[] = "AAA";
+CGame* CGame::sInstance = NULL;
+
 BOOL Initialize (GL_Window* window, Keys* keys)					// Any OpenGL Initialization Goes Here
 {
 	initOpenGLDrawing(window,keys,0.0f, 0.0f, 0.0f);
 	CGame::CreateInstance();
-	CGame::GetInstance()->init();
+	CGame::GetInstance()->Init();
 	return TRUE;						
 }
-
-void CGame::init()
-{
-	BallManagerC::CreateInstance();
-	StateManagerC::CreateInstance();
-	FieldManagerC::CreateInstance();
-	InputManagerC::CreateInstance();
-	SpriteDemoManagerC::CreateInstance();
-
-	InputManagerC::GetInstance()->init();
-
-	BallManagerC::GetInstance()->init();
-	StateManagerC::GetInstance()->setState(StateManagerC::HALF_BALLS_FILLED);
-	FieldManagerC::GetInstance()->init();
-	SpriteDemoManagerC::GetInstance()->init(28,26);
-}
-void CGame::UpdateFrame(DWORD milliseconds)			
-{
-	keyProcess();
-	SpriteDemoManagerC::GetInstance()->updateSprites(milliseconds);
-	BallManagerC::GetInstance()->updateBalls(milliseconds);
-//	InputManagerC::GetInstance()->update(milliseconds);
-}
-
-void CGame::DrawScene(void)											
-{
-	startOpenGLDrawing();
-	SpriteDemoManagerC::GetInstance()->renderSprites();
-	BallManagerC::GetInstance()->renderBalls();
-	FieldManagerC::GetInstance()->renderField();
-}
-
 
 CGame *CGame::CreateInstance()
 {
 	sInstance = new CGame();
 	return sInstance;
 }
-void CGame::shutdown()
+
+void CGame::Init()
 {
-	BallManagerC::GetInstance()->shutdown();
-	StateManagerC::GetInstance()->shutdown();
-	FieldManagerC::GetInstance()->shutdown();
-	SpriteDemoManagerC::GetInstance()->shutdown();
+	AAA::InputManager::CreateInstance();
+	GameObjectManager::CreateInstance();
+	CollisionManager::CreateInstance();
+	AAA::GameManager::CreateInstance();
+
+
+	AAA::InputManager::GetInstance()->Initialize();
+	GameObjectManager::GetInstance()->Initialize();
+	CollisionManager::GetInstance()->Initialize();
+	AAA::GameManager::GetInstance()->Initialize();
 }
+
+void CGame::UpdateFrame(DWORD milliseconds)			
+{
+	AAA::InputManager::GetInstance()->Update(milliseconds);
+	GameObjectManager::GetInstance()->Update(milliseconds);
+	CollisionManager::GetInstance()->Update(milliseconds);
+	AAA::GameManager::GetInstance()->Update(milliseconds);
+}
+
+void CGame::DrawScene(void)											
+{
+	startOpenGLDrawing();
+	GameObjectManager::GetInstance()->Render();
+}
+
+void CGame::Shutdown()
+{
+	AAA::InputManager::GetInstance()->Shutdown();
+	GameObjectManager::GetInstance()->Shutdown();
+	CollisionManager::GetInstance()->Shutdown();
+	AAA::GameManager::GetInstance()->Shutdown();
+}
+
 void CGame::DestroyGame(void)
 {
-	delete BallManagerC::GetInstance();	
-	delete StateManagerC::GetInstance();	
-	delete FieldManagerC::GetInstance();	
+
 }

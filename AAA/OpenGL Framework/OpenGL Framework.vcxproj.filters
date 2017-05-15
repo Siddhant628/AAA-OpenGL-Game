@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="game.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="openGLFramework.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="openGLStuff.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="random.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeDraw.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>AAA</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>AAA</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret.cpp">
+      <Filter>AAA</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>AAA</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>AAA</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="baseTypes.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="openGLFramework.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="openGLStuff.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="random.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeDraw.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="SOIL.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>AAA</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>AAA</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret.h">
+      <Filter>AAA</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>AAA</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>AAA</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{357ee481-8ae7-447c-8333-972114d4e798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AAA">
+      <UniqueIdentifier>{b81f8beb-9e4b-470a-932b-ad241cadb4c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{67830790-d1bb-4307-9b2a-3c7f22b1fd0a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

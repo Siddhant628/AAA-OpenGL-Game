@@ -6,6 +6,7 @@
 #include <gl\gl.h>												// Header File For The OpenGL32 Library
 #include <gl\glu.h>		
 #include "glut.h"
+
 #include "openglframework.h"
 #include "openglstuff.h"
 
@@ -18,10 +19,11 @@ void initOpenGLDrawing( GL_Window *window, Keys *keys, float backRed, float back
 	glEnable(GL_BLEND);											// Enable Blending
 	glEnable(GL_TEXTURE_2D);									// Enable Texture Mapping
 	glEnable(GL_CULL_FACE);										// Remove Back Face
-	
+	glEnable(GL_DEPTH_TEST);
 	g_window	= window;
 	g_keys		= keys;
 }
+
 void endOpenGLDrawing()
 {
 	glFlush();
@@ -29,8 +31,9 @@ void endOpenGLDrawing()
 
 void startOpenGLDrawing()
 {
-		// Clear the window
-	glClear(GL_COLOR_BUFFER_BIT);
-	// Set the modelview matrix to be the identity matrix
+	// Clear the window
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	
+	// Set the model view matrix to be the identity matrix
 	glLoadIdentity();
 }
